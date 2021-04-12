@@ -1,5 +1,5 @@
 let config = {
-    tyoe: Phaser.CANVAS,
+    type: Phaser.CANVAS,
     width: 640,
     height: 480,
 }
