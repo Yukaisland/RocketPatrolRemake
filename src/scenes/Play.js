@@ -104,16 +104,16 @@ class Play extends Phaser.Scene{
         
                }
 
-        checkCollision(rocket, ship) {
-            if( rocket.x + rocket.width > ship.x &&
-                rocket.x < ship.x + ship.width&&
-                rocket.y + rocket.height > ship.y &&
-                rocket.y < ship.y + ship.height) {
-                    ship.alpha = 0;
-                    rocket.reset();
-                    ship.reset();
-                }
-
+               checkCollision(rocket,ship){
+                if(rocket.x < ship.x + ship.width && 
+                    rocket.x + rocket.width > ship.x && 
+                    rocket.y < ship.y + ship.height &&
+                    rocket.height + rocket.y > ship. y){
+                        return true;
+                    }else{
+                        return false;
+                    }
+        
                  }
                  shipExplode(ship) {
                     // temporarily hide ship
