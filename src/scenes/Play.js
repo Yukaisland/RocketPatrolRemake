@@ -23,21 +23,21 @@ class Play extends Phaser.Scene{
              'rocket'
          );
 
-         this.ship1 = new Ship(
+         this.ship1 = new ship(
              this,
              100,
              200,
              'spaceship'
          );
 
-         this.ship2 = new Ship(
+         this.ship2 = new ship(
             this,
             300,
             240,
             'spaceship'
         );
 
-        this.ship3 = new Ship(
+        this.ship3 = new ship(
             this,
             380,
             300,
@@ -105,7 +105,7 @@ class Play extends Phaser.Scene{
 
         // 60-second play clock
         scoreConfig.fixedWidth = 0;
-        this.clock = this.time.delayedCall(30000, () => {
+        this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
             this.add.text(game.config.width/2, game.config.height/2, 'GAME OVER', scoreConfig).setOrigin(0.5);
             this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (R) to Restart', scoreConfig).setOrigin(0.5);
             this.gameOver = true;
