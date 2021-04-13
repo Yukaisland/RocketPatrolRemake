@@ -75,6 +75,24 @@ class Play extends Phaser.Scene{
             frameRate:30
         });
 
+        //initialize score
+        this.piScore = 0;
+
+        // display score
+        let scoreConfig = {
+            fontFamily: 'Courier',
+            fontSize: '28px',
+            backgroundColor: '#F3B141',
+            color: '#843605',
+            align: 'right',
+            padding: {
+            top: 5,
+            bottom: 5,
+            },
+            fixedWidth: 100
+        }
+        this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding*2, this.p1Score, scoreConfig);
+
         }
         update() {
             this.starfield.tilePositionX -=4;
@@ -126,6 +144,9 @@ class Play extends Phaser.Scene{
                         ship.alpha = 1;                       // make ship visible again
                         boom.destroy();                       // remove explosion sprite
                     });
+                    // score add and repaint
+                    this.p1Score += ship.points;
+                    this.scoreLeft.text = this.p1Score;
                 }
 
     }
