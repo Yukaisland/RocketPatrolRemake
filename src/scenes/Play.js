@@ -119,25 +119,22 @@ class Play extends Phaser.Scene{
             // check key input for restart
             if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
                 this.scene.restart();
-            
+            }
             if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
                 this.scene.start("menuScene");
             }
-}
+        
+            
+
+
             this.starfield.tilePositionX -=4;
-
-
-            this.checkCollision(this.p1Rocket,this.ship1);
-            this.checkCollision(this.p1Rocket,this.ship2);
-            this.checkCollision(this.p1Rocket,this.ship3);
-
             if (!this.gameOver) {               
                 this.p1Rocket.update();         // update rocket sprite
                 this.ship1.update();           // update spaceships (x3)
                 this.ship2.update();
                 this.ship3.update();
             } 
-
+        
             // check collisions
             if(this.checkCollision(this.p1Rocket, this.ship3)) {
                 this.p1Rocket.reset();
@@ -151,8 +148,8 @@ class Play extends Phaser.Scene{
                 this.p1Rocket.reset();
                 this.shipExplode(this.ship1);
             }
-        
-               }
+}
+               
 
                checkCollision(rocket,ship){
                 if(rocket.x < ship.x + ship.width && 
